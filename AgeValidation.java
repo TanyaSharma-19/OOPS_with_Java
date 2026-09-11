@@ -1,5 +1,3 @@
-
-
 import java.util.Scanner;
 
 public class AgeValidation {
@@ -20,7 +18,8 @@ public class AgeValidation {
     static void ageValidation(int a) throws InvalidAgeException {
         if (a < 18)
             throw new InvalidAgeException("Age is invalid");
-        system.out.println("elgible to vote");`
+
+        System.out.println("eligible to vote");
     }
 }
 
