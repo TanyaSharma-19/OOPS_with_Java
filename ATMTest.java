@@ -21,8 +21,7 @@ public class ATMTest {
             throws InsufficientBalanceException {
 
         if (balance < amount) {
-            throw new InsufficientBalanceException(
-                "Insufficient balance for withdrawal"
+            throw new InsufficientBalanceException( "Insufficient balance for withdrawal"
             );
         }
         else {

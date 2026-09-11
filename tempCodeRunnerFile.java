@@ -1,3 +1,5 @@
+
+
 import java.util.Scanner;
 
 public class Pre_defined_exception {
@@ -6,10 +8,10 @@ public class Pre_defined_exception {
 
         Scanner sc = new Scanner(System.in);
 
-        int[] arr = {1, 2, 3, 4, 5};
-        int i, b;
-
-        try {
+        
+            int[] arr = {1, 2, 3, 4, 5};
+            int i, b;
+            try{
             System.out.print("Enter array index: ");
             i = sc.nextInt();
 
@@ -27,10 +29,9 @@ public class Pre_defined_exception {
         catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("An error occurred: " + e.getMessage());
         }
-
-        finally {
+        finally{
             sc.close();
-            System.out.println("Finally executed");
+            System.out.println("Finallly executed");
         }
     }
 }
