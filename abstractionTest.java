@@ -1,4 +1,3 @@
-
 interface Payment{
 
     int a = 10; // this is public, static and final by default
