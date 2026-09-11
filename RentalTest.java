@@ -1,3 +1,4 @@
+
 public class RentalTest {
     public static void main(String[] args) {
         Rentable car = new Car();
