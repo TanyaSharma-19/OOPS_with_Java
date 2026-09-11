@@ -45,6 +45,6 @@ class Rectangle extends Shape{
     }
 
     double area(){
-        return length * width;
+        return (length * width);
     }
 }
