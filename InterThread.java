@@ -19,7 +19,7 @@ class BankAccount{
     synchronized void withdraw(int amount)
     {
         
-        while(amount < balance)
+        while(amount  > balance)
         {
             try{
             wait();
