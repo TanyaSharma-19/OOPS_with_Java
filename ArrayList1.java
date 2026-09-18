@@ -21,7 +21,7 @@ public class ArrayList1 {
         int max = marks.get(0);
         for(int x: marks){
             if(x > max){
-                max = x;
+                max = x;         
             }
         }
         return max;
