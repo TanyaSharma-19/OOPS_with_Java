@@ -1,10 +1,23 @@
+import java.util.ArrayList;
+
 public class TicketBook {
 
     static class TicketBooking {
-        private int tickets = 5;
+
+        private ArrayList<String> tickets = new ArrayList<>();
+
+        public TicketBooking() {
+            tickets.add("Ticket 1");
+            tickets.add("Ticket 2");
+            tickets.add("Ticket 3");
+            tickets.add("Ticket 4");
+            tickets.add("Ticket 5");
+        }
 
         public synchronized void bookTicket(String customerName) {
-            if (tickets > 0) {
+
+            if (!tickets.isEmpty()) {
+
                 System.out.println(customerName + " is booking a ticket...");
 
                 try {
@@ -13,17 +26,20 @@ public class TicketBook {
                     e.printStackTrace();
                 }
 
-                tickets--;
+                String ticket = tickets.remove(0);
 
-                System.out.println(customerName + " successfully booked a ticket.");
-                System.out.println("Tickets remaining: " + tickets);
+                System.out.println(customerName + " successfully booked " + ticket);
+                System.out.println("Tickets remaining: " + tickets.size());
+
             } else {
-                System.out.println(customerName + " could not book a ticket. No tickets available.");
+                System.out.println(customerName
+                        + " could not book a ticket. No tickets available.");
             }
         }
     }
 
     static class BookingCounter implements Runnable {
+
         private TicketBooking booking;
         private String customerName;
 
@@ -42,12 +58,23 @@ public class TicketBook {
 
         TicketBooking booking = new TicketBooking();
 
-        Thread t1 = new Thread(new BookingCounter(booking, "Customer 1"));
-        Thread t2 = new Thread(new BookingCounter(booking, "Customer 2"));
-        Thread t3 = new Thread(new BookingCounter(booking, "Customer 3"));
-        Thread t4 = new Thread(new BookingCounter(booking, "Customer 4"));
-        Thread t5 = new Thread(new BookingCounter(booking, "Customer 5"));
-        Thread t6 = new Thread(new BookingCounter(booking, "Customer 6"));
+        Thread t1 = new Thread(
+                new BookingCounter(booking, "Customer 1"));
+
+        Thread t2 = new Thread(
+                new BookingCounter(booking, "Customer 2"));
+
+        Thread t3 = new Thread(
+                new BookingCounter(booking, "Customer 3"));
+
+        Thread t4 = new Thread(
+                new BookingCounter(booking, "Customer 4"));
+
+        Thread t5 = new Thread(
+                new BookingCounter(booking, "Customer 5"));
+
+        Thread t6 = new Thread(
+                new BookingCounter(booking, "Customer 6"));
 
         t1.start();
         t2.start();
